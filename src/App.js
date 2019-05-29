@@ -13,59 +13,60 @@ class App extends React.Component {
     super(props);
     this.state = {
       todoList: todoData,
-      todoTask: '',
+      todoTask: ""
     };
   }
 
-  eventHandler = (event) => {
+  eventHandler = event => {
     this.setState({
-      todoTask: event.target.value,
+      todoTask: event.target.value
     });
-  }
+  };
 
   addTask = () => {
-    const newTask = {
-      id: Date.now().toString(),
-      task: this.state.todoTask,
-      completed: false,
-    };
+    if (this.state.todoTask === "") {
+      alert("Forgot what to add? Ask your mum!");
+    } else {
+      const newTask = {
+        id: Date.now().toString(),
+        task: this.state.todoTask,
+        completed: false
+      };
 
-    const newTodoList = this.state.todoList.concat(newTask);
+      const newTodoList = this.state.todoList.concat(newTask);
 
-    this.setState({
-      todoList: newTodoList,
-      todoTask: '',
-    });
+      this.setState({
+        todoList: newTodoList,
+        todoTask: ""
+      });
+    }
 
-    console.log("Task added.");
-  }
+    console.log("Add button ran successfully.");
+  };
 
   render() {
     return (
       <div>
         <h3>My Todo List:</h3>
 
-        {
-          this.state.todoList.map(item => (
-            <div key={item.id}>
-              {item.task}
-            </div>
-          ))
-        }
+        {this.state.todoList.map(item => (
+          <div key={item.id}>{item.task}</div>
+        ))}
 
-        <Todo 
-          eventHandler = {this.eventHandler}
-          addTask = {this.addTask}
+        <Todo
+          placeholder="Something new to do?"
+          eventHandler={this.eventHandler}
+          addTask={this.addTask}
         />
       </div>
     );
   }
 }
 
-function Todo({ eventHandler, addTask }) {
+function Todo({ placeholder, eventHandler, addTask }) {
   return (
     <div>
-      <input onChange={eventHandler}/>
+      <input placeholder={placeholder} onChange={eventHandler} />
       <button onClick={addTask}>Add</button>
       <button>Clear Completed</button>
     </div>
