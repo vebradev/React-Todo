@@ -1,13 +1,11 @@
 import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
 
 const todoData = [
   { task: "Organize Garage", id: "1528817077286", completed: false },
   { task: "Bake Cookies", id: "1528817084358", completed: false }
 ];
 
-// you will need a place to store your state in this component.
-// design `App` to be the parent component of your application.
-// this component is going to take care of state, and any change handlers you need to work with your state
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +15,7 @@ class App extends React.Component {
     };
   }
 
-  eventHandler = event => {
+  changeHandler = event => {
     this.setState({
       todoTask: event.target.value
     });
@@ -39,36 +37,42 @@ class App extends React.Component {
         todoList: newTodoList,
         todoTask: ""
       });
-    }
 
-    console.log("Add button ran successfully.");
+    }
+    console.log("Add button ran.");
   };
+
+  clearTask = () => {
+    console.log("cleared");
+  }
 
   render() {
     return (
       <div>
         <h3>My Todo List:</h3>
 
-        {this.state.todoList.map(item => (
-          <div key={item.id}>{item.task}</div>
-        ))}
+        <TodoList 
+          todoList={this.state.todoList}
+        />
 
         <Todo
+          todoTask={this.todoTask}
           placeholder="Something new to do?"
-          eventHandler={this.eventHandler}
+          changeHandler={this.changeHandler}
           addTask={this.addTask}
+          clearTask={this.clearTask}
         />
       </div>
     );
   }
 }
 
-function Todo({ placeholder, eventHandler, addTask }) {
+function Todo({ todoTask, placeholder, changeHandler, addTask, clearTask }) {
   return (
     <div>
-      <input placeholder={placeholder} onChange={eventHandler} />
+      <input type="text" value={todoTask} placeholder={placeholder} onChange={changeHandler} />
       <button onClick={addTask}>Add</button>
-      <button>Clear Completed</button>
+      <button onClick={clearTask}>Clear Completed</button>
     </div>
   );
 }
