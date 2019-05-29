@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 const todoData = [
   { task: "Organize Garage", id: "1528817077286", completed: false },
@@ -39,7 +40,6 @@ class App extends React.Component {
       });
 
     }
-    console.log("Add button ran.");
   };
 
   clearTask = () => {
@@ -55,7 +55,7 @@ class App extends React.Component {
           todoList={this.state.todoList}
         />
 
-        <Todo
+        <TodoForm
           todoTask={this.todoTask}
           placeholder="Something new to do?"
           changeHandler={this.changeHandler}
@@ -65,16 +65,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
-
-function Todo({ todoTask, placeholder, changeHandler, addTask, clearTask }) {
-  return (
-    <div>
-      <input type="text" value={todoTask} placeholder={placeholder} onChange={changeHandler} />
-      <button onClick={addTask}>Add</button>
-      <button onClick={clearTask}>Clear Completed</button>
-    </div>
-  );
 }
 
 export default App;
