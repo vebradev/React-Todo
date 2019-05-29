@@ -4,7 +4,8 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 
 const todoData = [
   { task: "Organize Garage", id: "1528817077286", completed: false },
-  { task: "Bake Cookies", id: "1528817084358", completed: false }
+  { task: "Bake Cookies", id: "1528817084358", completed: false },
+  { task: "Clean Room", id: "1528817344358", completed: true }
 ];
 
 class App extends React.Component {
@@ -16,9 +17,9 @@ class App extends React.Component {
     };
   }
 
-  changeHandler = event => {
+  changeHandler = e => {
     this.setState({
-      todoTask: event.target.value
+      todoTask: e.target.value
     });
   };
 
@@ -38,29 +39,27 @@ class App extends React.Component {
         todoList: newTodoList,
         todoTask: ""
       });
-
     }
   };
 
-  clearTask = () => {
-    console.log("cleared");
-  }
+  clearList = e => {
+    let newTodoList = this.state.todoList.filter(item => !item.completed);
+    this.setState({ todoList: newTodoList });
+  };
 
   render() {
     return (
       <div>
         <h3>My Todo List:</h3>
 
-        <TodoList 
-          todoList={this.state.todoList}
-        />
+        <TodoList todoList={this.state.todoList} />
 
         <TodoForm
           todoTask={this.todoTask}
           placeholder="Something new to do?"
           changeHandler={this.changeHandler}
           addTask={this.addTask}
-          clearTask={this.clearTask}
+          clearTask={this.clearList}
         />
       </div>
     );
