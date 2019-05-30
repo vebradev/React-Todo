@@ -3,8 +3,8 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
 const initialTodoData = [
-  { task: "Write simple scripts", id: "1528817077286", completed: true },
-  { task: "Use functions", id: "1528817084358", completed: true },
+  { task: "Write simple scripts", id: "1528817077286", completed: false },
+  { task: "Use functions", id: "1528817084358", completed: false },
   { task: "Learn React", id: "1528817344358", completed: false }
 ];
 
@@ -63,8 +63,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>FSW Development Checklist</h3>
+      <>
+        <h3>Frontend checklist</h3>
 
         <TodoList
           todoList={this.state.todoList}
@@ -79,7 +79,7 @@ class App extends React.Component {
           addTask={this.addTask}
           clearTask={this.clearList}
         />
-      </div>
+      </>
     );
   }
 }

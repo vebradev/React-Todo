@@ -4,7 +4,7 @@ import Todo from "./Todo";
 class TodoList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="tasks">
         {this.props.todoList.map(item => {
           return (
             <Todo 

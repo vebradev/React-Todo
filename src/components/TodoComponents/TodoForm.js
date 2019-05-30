@@ -3,14 +3,14 @@ import React from "react";
 class TodoForm extends React.Component {
   render() {
     return (
-      <div>
+      <div className="controls">
         <input
           value={this.props.value}
           placeholder={this.props.placeholder}
           onChange={this.props.inputChange}
         />
-        <button onClick={this.props.addTask}>Add</button>
-        <button onClick={this.props.clearTask}>Clear Completed</button>
+        <button className="add" onClick={this.props.addTask}>Add</button>
+        <button className="clear" onClick={this.props.clearTask}>Clear Completed</button>
       </div>
     );
   }
