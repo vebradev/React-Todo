@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       todoList: initialTodoData,
-      todoTask: "",
+      todoTask: ""
     };
   }
 
@@ -37,13 +37,20 @@ class App extends React.Component {
 
       this.setState({
         todoList: newTodoList,
-        todoTask: "",
+        todoTask: ""
       });
     }
   };
 
+  pressEnter = e => {
+    const keycode = e.keyCode ? e.keyCode : e.which;
+    if (keycode === 13) {
+      this.addTask();
+    }
+  };
+
   completeTask = e => {
-    e.target.classList.toggle('completed');
+    e.target.classList.toggle("completed");
 
     let newTodoList = this.state.todoList.map(item => {
       if (item.id === e.target.id) {
@@ -53,8 +60,8 @@ class App extends React.Component {
     });
     this.setState({
       todoList: newTodoList
-    })
-  }
+    });
+  };
 
   clearList = e => {
     let newTodoList = this.state.todoList.filter(item => !item.completed);
@@ -76,6 +83,7 @@ class App extends React.Component {
           todoTask={this.todoTask}
           placeholder="Something new to do?"
           inputChange={this.inputChange}
+          pressEnter={this.pressEnter}
           addTask={this.addTask}
           clearTask={this.clearList}
         />
