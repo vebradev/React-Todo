@@ -3,7 +3,7 @@ import "./Todo.css";
 
 class Todo extends React.Component {
   render() {
-    return <div id={this.props.id}>{this.props.task}</div>;
+    return <div onClick={this.props.completeTask} id={this.props.id}>{this.props.task}</div>;
   }
 }
 
