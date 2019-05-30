@@ -66,6 +66,10 @@ input {
     background-color: #fce576;
 }
 
+input:focus, .controls .add:focus, .controls .clear:focus {
+    outline: none;
+}
+
 .controls .add {
     width: 38%;
     margin-right: 5px;
@@ -76,5 +80,5 @@ input {
 }
 
 .completed {
-    opacity: 0.5;
+    opacity: 0.4;
 }
