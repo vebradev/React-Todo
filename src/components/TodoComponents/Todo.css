@@ -1,0 +1,84 @@
+body {
+    background-color: #6923ff;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#root {
+    width: 300px;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #ffd501;
+    border: 1px solid #3c08ad;
+    border-radius: 8px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+    font-family: "Arvo", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tasks {
+    border-top: 1px solid #c49d018c;
+    border-bottom: 1px solid #c49d018c;
+    margin: 20px 0 20px 0;
+    padding: 20px 0 20px 0;
+}
+
+.tasks div {
+    width: max-content;
+    padding: 10px 15px;
+    background-color: #dab62a;
+    border-radius: 8px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.controls {
+    margin: 20px 0 0 0;
+}
+
+input {
+    font-size: 1rem;
+    padding: 15px 20px;
+    width: 260px;
+    background-color: #000;
+    border: 0;
+    border-radius: 4px;
+    color: #ffd501;
+    margin: 0 0 15px;
+}
+
+.controls .add, .controls .clear {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #dab629;
+    background-color: #fff1a8;
+    cursor: pointer;
+}
+
+.controls .add:hover, .controls .clear:hover {
+    background-color: #fce576;
+}
+
+input:focus, .controls .add:focus, .controls .clear:focus {
+    outline: none;
+}
+
+.controls .add {
+    width: 38%;
+    margin-right: 5px;
+}
+
+.controls .clear {
+    width: 60%;
+}
+
+.completed {
+    opacity: 0.4;
+}

@@ -3,15 +3,15 @@ import React from "react";
 class TodoForm extends React.Component {
   render() {
     return (
-      <div>
+      <div className="controls">
         <input
-          type="text"
-          value={this.props.todoTask}
+          value={this.props.value}
           placeholder={this.props.placeholder}
-          onChange={this.props.changeHandler}
+          onChange={this.props.inputChange}
+          onKeyPress={this.props.pressEnter}
         />
-        <button onClick={this.props.addTask}>Add</button>
-        <button onClick={this.props.clearTask}>Clear Completed</button>
+        <button className="add" onClick={this.props.addTask}>Add</button>
+        <button className="clear" onClick={this.props.clearTask}>Clear Completed</button>
       </div>
     );
   }
